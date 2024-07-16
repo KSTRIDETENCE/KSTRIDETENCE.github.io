@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <title>Downloads</title>
-=======
-  <title>Nuvens MFC</title>
->>>>>>> origin/main
   <style>
     * {
       box-sizing: border-box;
@@ -22,14 +18,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-<<<<<<< HEAD
       font-family: "Inter", sans-serif;
       font-optical-sizing: auto;
       font-weight: 500;
       font-style: normal;
-=======
-      font-family: Arial, sans-serif;
->>>>>>> origin/main
       text-align: center;
       width: 100vw;
       height: 100vh;
@@ -41,13 +33,8 @@
       align-items: center;
       gap: 20px;
       width: 100%;
-<<<<<<< HEAD
       max-width: 300px;
       font-size: 1.2rem;
-=======
-      max-width: 250px;
-      font-size: 1.25rem;
->>>>>>> origin/main
     }
     .links {
       display: flex;
@@ -57,7 +44,6 @@
       gap: 20px;
       border: 1px solid #BFBFBF;
       width: 100%;
-<<<<<<< HEAD
       padding: 3rem;
       border-radius: 2rem;
       font-weight: 600;
@@ -83,20 +69,6 @@
     .link.downloaded:hover {
       border-color: transparent;
       color: #fff;
-=======
-      padding: 4rem 3rem;
-      border-radius: 2rem;
-    }
-    .link {
-      color: #0000FE;
-    }
-    .link:hover {
-      text-decoration: underline;
-    }
-    .link.downloaded {
-      text-decoration: line-through;
-      color: #e0e0e0;
->>>>>>> origin/main
     }
     .title {
       color: #000;
@@ -106,11 +78,7 @@
 <body>
 
   <div class="container">
-<<<<<<< HEAD
   <div class="title">Download de Aplicativos</div>
-=======
-  <div class="title">Download de Aplicativos (Atualizado)</div>
->>>>>>> origin/main
   <div class="links">
   </div>
   <span class="copy">&copy;</span>
@@ -120,24 +88,14 @@
   const copy = document.querySelector(".copy");
   const date = new Date();
 
-<<<<<<< HEAD
   copy.innerHTML = `&copy;${date.getFullYear()}`;
-=======
-  copy.innerHTML = `&copy; ${date.getFullYear()}`;
->>>>>>> origin/main
 
   // Array de URLs dos links
   const linksUrl = [
   { name: "MFC TV", link: "https://bit.ly/tvboxmfc10" },
-<<<<<<< HEAD
   { name: "ONPIX TV", link: "https://bit.ly/pixtvoficial" },
   { name: "MFC Mobile", link: "https://bit.ly/mfccelular311" },
   { name: "ONPIX Mobile", link: "https://bit.ly/pixtvcelular" },
-=======
-  { name: "MFC Celular", link: "https://bit.ly/mfccelular311" },
-  { name: "ONPIX TV", link: "https://bit.ly/pixtvoficial" },
-  { name: "ONPIX Celular", link: "https://bit.ly/pixtvcelular" },
->>>>>>> origin/main
   ];
 
   // Seleciona o elemento onde os links serão adicionados
@@ -148,10 +106,7 @@
 
     const link = document.createElement("a");
     link.href = value.link;
-<<<<<<< HEAD
     link.target = '_blank';
-=======
->>>>>>> origin/main
     link.textContent = `${value.name}`; // Texto do link
     link.classList.add("link"); // Adiciona a classe 'link' ao <a>
 
