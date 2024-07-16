@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>Downloads</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+      text-align: center;
+      width: 100vw;
+      height: 100vh;
+      font-size: 18px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 300px;
+      font-size: 1.2rem;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border: 1px solid #BFBFBF;
+      width: 100%;
+      padding: 3rem;
+      border-radius: 2rem;
+      font-weight: 600;
+    }
+    .link {
+      color: #fff;
+      border: 2px solid transparent;
+      background-color: #FF4F00;
+      padding: .825rem;
+      border-radius: 999px;
+      text-decoration: none;
+      width: 100%;
+    }
+    .link:hover {
+      background: none;
+      border-color: #FF4F00;
+      color: #FF4F00;
+    }
+    .link.downloaded {
+      text-decoration: line-through;
+      background-color: #e0e0e0;
+    }
+    .link.downloaded:hover {
+      border-color: transparent;
+      color: #fff;
+    }
+    .title {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+  <div class="title">Download de Aplicativos</div>
+  <div class="links">
+  </div>
+  <span class="copy">&copy;</span>
+  </div>
+
+<script>
+  const copy = document.querySelector(".copy");
+  const date = new Date();
+
+  copy.innerHTML = `&copy;${date.getFullYear()}`;
+
+  // Array de URLs dos links
+  const linksUrl = [
+  { name: "MFC TV", link: "https://bit.ly/tvboxmfc10" },
+  { name: "ONPIX TV", link: "https://bit.ly/pixtvoficial" },
+  { name: "MFC Mobile", link: "https://bit.ly/mfccelular311" },
+  { name: "ONPIX Mobile", link: "https://bit.ly/pixtvcelular" },
+  ];
+
+  // Seleciona o elemento onde os links serão adicionados
+  const linksContainer = document.querySelector(".links");
+
+  // Itera sobre o array de URLs e cria os elementos <a> dinamicamente
+  linksUrl.forEach((value, index) => {
+
+    const link = document.createElement("a");
+    link.href = value.link;
+    link.target = '_blank';
+    link.textContent = `${value.name}`; // Texto do link
+    link.classList.add("link"); // Adiciona a classe 'link' ao <a>
+
+    linksContainer.appendChild(link);
+  });
+</script>
+
+</body>
+</html>
