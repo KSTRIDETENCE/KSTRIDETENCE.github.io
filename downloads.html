@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuvens MFC</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      width: 100vw;
+      height: 100vh;
+      font-size: 18px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 250px;
+      font-size: 1.25rem;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border: 1px solid #BFBFBF;
+      width: 100%;
+      padding: 4rem 3rem;
+      border-radius: 2rem;
+    }
+    .link {
+      color: #0000FE;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    .link.downloaded {
+      text-decoration: line-through;
+      color: #e0e0e0;
+    }
+    .title {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+  <div class="title">Download de Aplicativos (Atualizado)</div>
+  <div class="links">
+  </div>
+  <span class="copy">&copy;</span>
+  </div>
+
+<script>
+  const copy = document.querySelector(".copy");
+  const date = new Date();
+
+  copy.innerHTML = `&copy; ${date.getFullYear()}`;
+
+  // Array de URLs dos links
+  const linksUrl = [
+  { name: "MFC TV", link: "https://bit.ly/tvboxmfc10" },
+  { name: "MFC Celular", link: "https://bit.ly/mfccelular311" },
+  { name: "ONPIX TV", link: "https://bit.ly/pixtvoficial" },
+  { name: "ONPIX Celular", link: "https://bit.ly/pixtvcelular" },
+  ];
+
+  // Seleciona o elemento onde os links serão adicionados
+  const linksContainer = document.querySelector(".links");
+
+  // Itera sobre o array de URLs e cria os elementos <a> dinamicamente
+  linksUrl.forEach((value, index) => {
+
+    const link = document.createElement("a");
+    link.href = value.link;
+    link.textContent = `${value.name}`; // Texto do link
+    link.classList.add("link"); // Adiciona a classe 'link' ao <a>
+
+    linksContainer.appendChild(link);
+  });
+</script>
+
+</body>
+</html>
