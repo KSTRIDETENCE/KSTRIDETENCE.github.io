@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuvens MFC</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      width: 100vw;
+      height: 100vh;
+      font-size: 18px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 250px;
+      font-size: 1.25rem;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border: 1px solid #BFBFBF;
+      width: 100%;
+      padding: 4rem 3rem;
+      border-radius: 2rem;
+    }
+    .link {
+      color: #0000FE;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    .link.downloaded {
+      text-decoration: line-through;
+      color: #e0e0e0;
+    }
+    .title {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+  <div class="title">Download de Nuvens MFC (Atualizado)</div>
+  <div class="links">
+  </div>
+  <span class="copy">&copy;</span>
+  </div>
+
+<script>
+  const copy = document.querySelector(".copy");
+  const date = new Date();
+
+  copy.innerHTML = `&copy; ${date.getFullYear()}`;
+
+  // Função para verificar se um cookie existe
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  // Função para definir um cookie com expiração em 24 horas
+  function setCookie(name, value) {
+    const date = new Date();
+    date.setTime(date.getTime() + (1 * 60 * 60 * 1000)); // 1 hora
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/`;
+  }
+
+  // Array de URLs dos links
+  const linksUrl = [
+    "https://bit.ly/jcinema0",
+    "https://bit.ly/cinema56",
+    "https://bit.ly/spider26",
+    "https://bit.ly/cocoo06",
+    "https://bit.ly/cooco"
+  ];
+
+  // Seleciona o elemento onde os links serão adicionados
+  const linksContainer = document.querySelector(".links");
+
+  // Itera sobre o array de URLs e cria os elementos <a> dinamicamente
+  linksUrl.forEach((url, index) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.textContent = `Nuvem ${index + 1}`; // Texto do link
+    link.classList.add("link"); // Adiciona a classe 'link' ao <a>
+
+    // Verifica se o cookie para este link existe
+    if (getCookie(`downloaded_${index}`)) {
+      link.classList.add("downloaded"); // Adiciona classe 'downloaded' se o cookie existir
+    }
+
+    // Evento de clique para definir o cookie e o estilo do link
+    link.addEventListener("click", () => {
+      if (!getCookie(`downloaded_${index}`)) {
+        setCookie(`downloaded_${index}`, true); // Define o cookie se não existir
+        link.classList.add("downloaded"); // Adiciona classe 'downloaded' ao clicar
+      }
+    });
+
+    linksContainer.appendChild(link);
+  });
+</script>
+
+</body>
+</html>
